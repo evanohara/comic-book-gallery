@@ -30,6 +30,10 @@ namespace ComicBookGallery.Controllers
                 return HttpNotFound();
             }
             ComicBook comicBook = _comicBookRepository.GetComicBook((int)id);
+            if (comicBook == null)
+            {
+                return HttpNotFound();
+            }
             return View(comicBook);
         }
     }
